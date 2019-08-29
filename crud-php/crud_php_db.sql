@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2019 at 04:52 AM
+-- Generation Time: Aug 29, 2019 at 10:31 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -48,6 +48,47 @@ INSERT INTO `mahasiswa` (`id`, `nama`, `kelas`, `npm`, `jurusan`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mobil`
+--
+
+CREATE TABLE `mobil` (
+  `id` int(11) NOT NULL,
+  `merk` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mobil`
+--
+
+INSERT INTO `mobil` (`id`, `merk`, `type`, `harga`) VALUES
+(1, 'toyota', 'avanza', 15000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `motor`
+--
+
+CREATE TABLE `motor` (
+  `id` int(11) NOT NULL,
+  `merk` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `motor`
+--
+
+INSERT INTO `motor` (`id`, `merk`, `type`, `harga`) VALUES
+(1, 'hondax', 'cbr 150r', 35000000),
+(2, 'yamaha', 'matic', 12000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -75,6 +116,18 @@ ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `mobil`
+--
+ALTER TABLE `mobil`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `motor`
+--
+ALTER TABLE `motor`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -88,7 +141,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `mobil`
+--
+ALTER TABLE `mobil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `motor`
+--
+ALTER TABLE `motor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
