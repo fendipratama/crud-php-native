@@ -14,6 +14,13 @@ $result = mysqli_query($mysqli, "SELECT * FROM mahasiswa ORDER BY id ASC");
 
 ?>
 
+<?php 
+    session_start();
+    if($_SESSION['status']!="login"){
+        header("location:login.php?pesan=belum_login");
+    }
+    ?>
+
 <html>
 <head>    
     <title>CRUD - PHP</title>
@@ -25,6 +32,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM mahasiswa ORDER BY id ASC");
 
 <div class="container">
 <a href="add.php"><button type="button" class="btn btn-primary">add</button></a>
+<a href="logout.php">LOGOUT</a>
 <br/>
 <br/>
 

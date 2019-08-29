@@ -1,5 +1,6 @@
 <?PHP
 
+session_start();
 include_once("config.php");
 
 	$username = $_POST['username'];
@@ -19,25 +20,18 @@ include_once("config.php");
 
 		$result=mysqli_query($mysqli, "select * from user where username='$username' AND password='$password'");
 
-		print_r($result);
-		// $rowCheck = mysqli_num_rows($result);
+		//print_r($result);
+		$rowCheck = mysqli_num_rows($result);
 
-		// if($rowCheck > 0){
-		
-		// 	while($row = mysqli_fetch_array($result)){
+		if($rowCheck > 0){
 
-		// 		session_start();
-		// 		$_SESSION['username'];
+			$_SESSION['username'] = $username;
+			$_SESSION['status'] = "login";
+			header( "Location: http://localhost/crud-php/index.php" );
 
-		// 		header( "Location: http://localhost/crud-php/index.php" );
-		// 	}
+		}else {
 
-		// }
-		// else {
-
-		// 	echo 'Invalid username or password';
-
-		// 	echo "<a href='login.html'><button type='button'>Go to Home</button></a>";
-		// }
+			header("location:login.php?pesan=gagal");
+		}
 	}
 ?>
